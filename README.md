@@ -1,3 +1,3 @@
 # JeongsuPark-dev.github.io
 
-https://jeongsupark-dev.github.io/index.html
+https://jeongsupark-dev.github.io/build/index.html
