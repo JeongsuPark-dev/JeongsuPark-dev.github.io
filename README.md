@@ -1,7 +1,5 @@
-# JeongsuPark-dev.github.io
-
+# 포트폴리오 주소
 https://jeongsupark-dev.github.io/build/index.html
-
 
 # build folder
 실제 배포될 폴더
