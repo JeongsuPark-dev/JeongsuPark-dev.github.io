@@ -58,3 +58,9 @@
 .App-list{
   display: inline-table;
 }
+
+.Fix_Right_Top{
+  position: fixed;
+  right: 0;
+  top: 0;
+}

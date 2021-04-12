@@ -1,5 +1,6 @@
 import {Component} from "react";
 import logo from "../logo.svg";
+import Moment from "react-moment";
 
 class Header extends Component {
     render() {
@@ -17,6 +18,10 @@ class Header extends Component {
                 >
                     Source Code
                 </a>
+                <Moment
+                    className="Fix_Right_Top"
+                    format={"YY/MM/DD hh:mm:ss"} interval={1000}
+                ></Moment>
             </header>
         );
     }
