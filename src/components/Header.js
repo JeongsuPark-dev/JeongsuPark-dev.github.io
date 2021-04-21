@@ -1,6 +1,7 @@
 import {Component} from "react";
 import logo from "../logo.svg";
 import Moment from "react-moment";
+import { Button } from "antd";
 
 class Header extends Component {
     render() {
@@ -11,12 +12,13 @@ class Header extends Component {
                     박정수 포트폴리오
                 </p>
                 <a
-                    className="App-link"
                     href="https://github.com/JeongsuPark-dev/JeongsuPark-dev.github.io"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Source Code
+                    <Button type="danger">
+                        Source Code
+                    </Button>
                 </a>
                 <Moment
                     className="Fix_Right_Top"

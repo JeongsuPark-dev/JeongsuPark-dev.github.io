@@ -8,6 +8,7 @@ import ForState from "./components/ForState";
 import MiniProject from "./components/Project";
 import Technology from "./components/Technology";
 
+
 let stack = 0;
 
 class App extends Component {
@@ -43,20 +44,19 @@ class App extends Component {
         console.log("박정수 포트폴리오!")
         return (
             <div className="App">
-                <Header></Header>
-
-                <Body Title={"This is body"}></Body>
-                <Body></Body>
+                <Header />
+                <Body Title={"This is body"} />
+                <Body/>
                 <Technology
                     tech_high_list = {this.state.tech_high_list}
                     tech_mid_list = {this.state.tech_mid_list}
                     tech_low_list = {this.state.tech_low_list}
-                ></Technology>
+                />
                 <ForState
                     onChangePage={function (e) {
                         stack++;
                     }.bind(this)}
-                ></ForState>
+                />
                 <MiniProject
                     data = {this.state.navcontents}
                     // Link={"https://me2.do/xWNMi3gu"}
@@ -64,9 +64,9 @@ class App extends Component {
                     // SubTitle={"단축 URL : "}
                     // SubLink={"https://me2.do/xWNMi3gu"}
                     // SubContents={"https://me2.do/xWNMi3gu"}
-                ></MiniProject>
+                />
 
-                <Footer></Footer>
+                <Footer />
             </div>
         );
     }
