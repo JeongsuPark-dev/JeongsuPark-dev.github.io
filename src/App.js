@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import {Component} from "react";
 import ForState from "./components/ForState";
 import MiniProject from "./components/Project";
+import Technology from "./components/Technology";
 
 let stack = 0;
 
@@ -16,15 +17,24 @@ class App extends Component {
         this.state = {
             //Nav에 포함될 항목들
             navcontents:[
-                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩',
+                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩111',
                     SubTitle:"단축 URL : ",
                     SubLink:"https://me2.do/xWNMi3gu",
                     SubContents:"https://me2.do/xWNMi3gu"},
 
-                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩',
+                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩222',
                     SubTitle:"단축 URL : ",
                     SubLink:"https://me2.do/xWNMi3gu",
                     SubContents:"https://me2.do/xWNMi3gu"}
+            ]
+            ,tech_high_list:[
+                "html","css3","jquery","git","js","mysql"
+            ]
+            ,tech_mid_list:[
+                "nodejs","react","jquery"
+            ]
+            ,tech_low_list:[
+                "redux"
             ]
         }
     }
@@ -37,6 +47,11 @@ class App extends Component {
 
                 <Body Title={"This is body"}></Body>
                 <Body></Body>
+                <Technology
+                    tech_high_list = {this.state.tech_high_list}
+                    tech_mid_list = {this.state.tech_mid_list}
+                    tech_low_list = {this.state.tech_low_list}
+                ></Technology>
                 <ForState
                     onChangePage={function (e) {
                         stack++;

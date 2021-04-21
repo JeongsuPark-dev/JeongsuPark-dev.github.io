@@ -8,7 +8,7 @@ class Header extends Component {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
-                    React로 만든 박정수 포트폴리오
+                    박정수 포트폴리오
                 </p>
                 <a
                     className="App-link"
