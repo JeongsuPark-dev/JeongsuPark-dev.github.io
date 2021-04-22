@@ -8,12 +8,6 @@ class Footer extends Component {
                 <div>this is footer</div>
                 <div>this is footer</div>
                 <div>this is footer</div>
-                <div>this is footer</div>
-                <div>this is footer</div>
-                <div>this is footer</div>
-                <div>this is footer</div>
-                <div>this is footer</div>
-                <div>this is footer</div>
             </footer>
         );
     }

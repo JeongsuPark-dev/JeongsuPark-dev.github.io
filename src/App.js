@@ -45,7 +45,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Body Title={"This is body"} />
+                <Body Title={"신규 작성중인 페이지로 실시간 업데이트 중입니다."} />
+                <Body Title={"마지막 업데이트 일자 : 2021-04-22 14:20"} />
                 <Body/>
                 <Technology
                     tech_high_list = {this.state.tech_high_list}
@@ -57,6 +58,8 @@ class App extends Component {
                         stack++;
                     }.bind(this)}
                 />
+
+                <h1>Mini Project</h1>
                 <MiniProject
                     data = {this.state.navcontents}
                     // Link={"https://me2.do/xWNMi3gu"}

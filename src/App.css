@@ -29,6 +29,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-bottom: 10px;
 }
 
 .App-link {
@@ -46,13 +47,14 @@
 
 
 .App-body{
-  background: rgba(191,203,253,0.6);
+  background: rgba(191,203,253,0.3);
+  font-size: 20px;
 }
 .App-Nav {
-  background: rgba(205,249,222,0.6);
+  background: rgba(205,249,222,0.3);
 }
 .App-footer{
-  background: rgba(251,202,223,0.6);
+  background: rgba(251,202,223,0.3);
 }
 
 .App-list{
@@ -68,8 +70,4 @@
 .Tech_img{
   width: 70px;
   height: 70px;
-}
-
-.Tech-component{
-  display: block;
 }
