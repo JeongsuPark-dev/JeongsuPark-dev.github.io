@@ -59,6 +59,7 @@ class App extends Component {
                     }.bind(this)}
                 />
 
+                <h1>Mini Project</h1>
                 <MiniProject
                     data = {this.state.navcontents}
                     // Link={"https://me2.do/xWNMi3gu"}
