@@ -49,16 +49,16 @@ class Technology extends Component {
         return (
             <div className={"App-technology"} style={{marginBottom:"10px"}}>
                 <h1>기술 숙련도</h1>
-                <Divider orientation="center">상</Divider>
+                <Divider orientation="center" style={{fontSize : "26px"}}>상</Divider>
                 <Row gutter={[8,16]} justify="space-around" align="middle">
                     {tech_high_lists}
                 </Row>
-                <Divider orientation="center">중</Divider>
+                <Divider orientation="center" style={{fontSize : "26px"}}>중</Divider>
                 <Row gutter={[8,16]} justify="space-around" align="middle">
 
                     {tech_mid_lists}
                 </Row>
-                <Divider orientation="center">하</Divider>
+                <Divider orientation="center" style={{fontSize : "26px"}}>하</Divider>
                 <Row gutter={[8,16]} justify="space-around" align="middle">
                     {tech_low_lists}
                 </Row>

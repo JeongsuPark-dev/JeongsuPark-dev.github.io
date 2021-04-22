@@ -18,21 +18,21 @@ class App extends Component {
         this.state = {
             //Nav에 포함될 항목들
             navcontents:[
-                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩111',
-                    SubTitle:"단축 URL : ",
-                    SubLink:"https://me2.do/xWNMi3gu",
-                    SubContents:"https://me2.do/xWNMi3gu"},
-
-                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩222',
+                {Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩',
                     SubTitle:"단축 URL : ",
                     SubLink:"https://me2.do/xWNMi3gu",
                     SubContents:"https://me2.do/xWNMi3gu"}
+
+                // ,{Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩',
+                //     SubTitle:"단축 URL : ",
+                //     SubLink:"https://me2.do/xWNMi3gu",
+                //     SubContents:"https://me2.do/xWNMi3gu"}
             ]
             ,tech_high_list:[
                 "html","css3","jquery","git","js","mysql"
             ]
             ,tech_mid_list:[
-                "nodejs","react","jquery"
+                "nodejs","react"
             ]
             ,tech_low_list:[
                 "redux"
@@ -59,7 +59,6 @@ class App extends Component {
                     }.bind(this)}
                 />
 
-                <h1>Mini Project</h1>
                 <MiniProject
                     data = {this.state.navcontents}
                     // Link={"https://me2.do/xWNMi3gu"}
@@ -68,7 +67,7 @@ class App extends Component {
                     // SubLink={"https://me2.do/xWNMi3gu"}
                     // SubContents={"https://me2.do/xWNMi3gu"}
                 />
-
+                <h1>Footer(수정예정)</h1>
                 <Footer />
             </div>
         );
