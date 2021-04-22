@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <p>
+                <p style={{margin:"0px"}}>
                     박정수 포트폴리오
                 </p>
                 <a

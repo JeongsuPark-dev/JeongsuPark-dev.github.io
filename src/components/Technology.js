@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {Col, Row, Divider} from "antd";
 
 
 class Technology extends Component {
@@ -14,46 +15,53 @@ class Technology extends Component {
 
         while (i<get_tech_high_list.length){
             tech_high_lists.push(
-            <img
-                className={"Tech_img"}
-                src={process.env.PUBLIC_URL + '/images/' + get_tech_high_list[i] +'.png'}></img>
+                <Col span={6}>
+                    <img
+                        className={"Tech_img"}
+                        src={process.env.PUBLIC_URL + '/images/' + get_tech_high_list[i] +'.png'}></img>
+                </Col>
             )
             i+=1;
         }
         i = 0 ;
         while (i<get_tech_mid_list.length){
             tech_mid_lists.push(
-                <img
-                    className={"Tech_img"}
-                    src={process.env.PUBLIC_URL + '/images/' + get_tech_mid_list[i] +'.png'}></img>
+                <Col span={6}>
+                    <img
+                        className={"Tech_img"}
+                        src={process.env.PUBLIC_URL + '/images/' + get_tech_mid_list[i] +'.png'}></img>
+                </Col>
             )
             i+=1;
         }
         i = 0 ;
         while (i<get_tech_low_list.length){
             tech_low_lists.push(
-                <img
-                    className={"Tech_img"}
-                    src={process.env.PUBLIC_URL + '/images/' + get_tech_low_list[i] +'.png'}></img>
+                <Col span={6}>
+                    <img
+                        className={"Tech_img"}
+                        src={process.env.PUBLIC_URL + '/images/' + get_tech_low_list[i] +'.png'}></img>
+                </Col>
             )
             i+=1;
         }
 
         return (
-            <div className={"App-technology"}>
+            <div className={"App-technology"} style={{marginBottom:"10px"}}>
                 <h1>기술 숙련도</h1>
-                <div className={"Tech-component"}>
-                    <b2>상</b2>
+                <Divider orientation="center">상</Divider>
+                <Row gutter={[8,16]} justify="space-around" align="middle">
                     {tech_high_lists}
-                </div>
-                <div className={"Tech-component"}>
-                    <b2>중</b2>
+                </Row>
+                <Divider orientation="center">중</Divider>
+                <Row gutter={[8,16]} justify="space-around" align="middle">
+
                     {tech_mid_lists}
-                </div>
-                <div className={"Tech-component"}>
-                    <b2>하</b2>
+                </Row>
+                <Divider orientation="center">하</Divider>
+                <Row gutter={[8,16]} justify="space-around" align="middle">
                     {tech_low_lists}
-                </div>
+                </Row>
             </div>
         );
     }
