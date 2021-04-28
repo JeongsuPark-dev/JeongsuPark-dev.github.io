@@ -34,7 +34,7 @@ class MiniProject extends Component {
         }
 
         return (
-            <div className={"App-Nav"}>
+            <div className="App-Nav">
                 <h1>Mini Project</h1>
                 <ul style={{margin:"0px"}}>
                     {lists}

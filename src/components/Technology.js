@@ -17,7 +17,7 @@ class Technology extends Component {
             tech_high_lists.push(
                 <Col span={6}>
                     <img
-                        className={"Tech_img"}
+                        className="Tech_img"
                         src={process.env.PUBLIC_URL + '/images/' + get_tech_high_list[i] +'.png'}></img>
                 </Col>
             )
@@ -28,7 +28,7 @@ class Technology extends Component {
             tech_mid_lists.push(
                 <Col span={6}>
                     <img
-                        className={"Tech_img"}
+                        className="Tech_img"
                         src={process.env.PUBLIC_URL + '/images/' + get_tech_mid_list[i] +'.png'}></img>
                 </Col>
             )
@@ -39,7 +39,7 @@ class Technology extends Component {
             tech_low_lists.push(
                 <Col span={6}>
                     <img
-                        className={"Tech_img"}
+                        className="Tech_img"
                         src={process.env.PUBLIC_URL + '/images/' + get_tech_low_list[i] +'.png'}></img>
                 </Col>
             )
@@ -47,7 +47,7 @@ class Technology extends Component {
         }
 
         return (
-            <div className={"App-technology"} style={{marginBottom:"10px"}}>
+            <div className="App-technology" style={{marginBottom:"10px", marginLeft : "14vw", marginRight:"14vw"}}>
                 <h1>기술 숙련도</h1>
                 <Divider orientation="center" style={{fontSize : "26px"}}>상</Divider>
                 <Row gutter={[8,16]} justify="space-around" align="middle">

@@ -45,30 +45,32 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Body Title={"신규 작성중인 페이지로 실시간 업데이트 중입니다."} />
-                <Body Title={"마지막 업데이트 일자 : 2021-04-22 14:20"} />
-                <Body/>
-                <Technology
-                    tech_high_list = {this.state.tech_high_list}
-                    tech_mid_list = {this.state.tech_mid_list}
-                    tech_low_list = {this.state.tech_low_list}
-                />
-                <ForState
-                    onChangePage={function (e) {
-                        stack++;
-                    }.bind(this)}
-                />
+                <div className="App-mainbody">
+                    <Body Title={"신규 작성중인 페이지로 실시간 업데이트 중입니다."} />
+                    <Body Title={"마지막 업데이트 일자 : 2021-04-28 18:00"} />
+                    <Body/>
+                    <Technology
+                        tech_high_list = {this.state.tech_high_list}
+                        tech_mid_list = {this.state.tech_mid_list}
+                        tech_low_list = {this.state.tech_low_list}
+                    />
+                    <ForState
+                        onChangePage={function (e) {
+                            stack++;
+                        }.bind(this)}
+                    />
 
-                <MiniProject
-                    data = {this.state.navcontents}
-                    // Link={"https://me2.do/xWNMi3gu"}
-                    // Title={'네이버 클론코딩'}
-                    // SubTitle={"단축 URL : "}
-                    // SubLink={"https://me2.do/xWNMi3gu"}
-                    // SubContents={"https://me2.do/xWNMi3gu"}
-                />
-                <h1>Footer(수정예정)</h1>
-                <Footer />
+                    <MiniProject
+                        data = {this.state.navcontents}
+                        // Link={"https://me2.do/xWNMi3gu"}
+                        // Title={'네이버 클론코딩'}
+                        // SubTitle={"단축 URL : "}
+                        // SubLink={"https://me2.do/xWNMi3gu"}
+                        // SubContents={"https://me2.do/xWNMi3gu"}
+                    />
+                    <h1>Footer(수정예정)</h1>
+                    <Footer />
+                </div>
             </div>
         );
     }
