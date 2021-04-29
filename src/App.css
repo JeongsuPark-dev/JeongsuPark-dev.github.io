@@ -14,10 +14,14 @@
   }
 }
 @media (min-width: 1000px) {
-  .App-mainbody{ padding-top: 21vh; }
+  .App-mainbody{ margin-top: 18vh;}
+
 }
-@media (max-width: 990px) {
-  .App-mainbody{ padding-top: 31%; }
+@media (max-width: 999px) {
+  .App-mainbody{ margin-top: 20%;}
+}
+@media (max-width: 390px) {
+  .App-mainbody{ margin-top: 27%;}
 }
 .App-header {
   background-color: rgb(2,29,46);
@@ -38,6 +42,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   padding-bottom: 10px;
+  top: 0;
 }
 
 .App-link {
