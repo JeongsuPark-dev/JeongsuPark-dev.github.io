@@ -15,10 +15,11 @@
 }
 @media (min-width: 1000px) {
   .App-mainbody{ margin-top: 18vh;}
-
+  .App-home{ padding-left: 17vw; padding-right: 17vw; font-size: 20px}
 }
 @media (max-width: 999px) {
   .App-mainbody{ margin-top: 20%;}
+  .App-home{ padding-left: 3vw; padding-right: 3vw; font-size: 17px }
 }
 @media (max-width: 390px) {
   .App-mainbody{ margin-top: 27%;}
@@ -58,6 +59,15 @@
   }
 }
 
+.App-home{
+  width : 100%;
+  height: auto;
+  background-image: url("./images/book_background.jpg");
+  background-size: cover;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  font-weight: bold;
+}
 
 .App-body{
   background: rgba(191,203,253,0.3);
@@ -84,3 +94,4 @@
   width: 70px;
   height: 70px;
 }
+
