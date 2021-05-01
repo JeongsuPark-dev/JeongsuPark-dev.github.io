@@ -11,8 +11,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Switch>
-                    <Route exact path="/MiniProject001"><MiniProject001></MiniProject001></Route>
-                    <Route exact path="/MiniProject002"><MiniProject002></MiniProject002></Route>
+                    <Route path="/MiniProject001"><MiniProject001></MiniProject001></Route>
+                    <Route path="/MiniProject002"><MiniProject002></MiniProject002></Route>
                     <Route path=""><Main></Main></Route>
                     <Route path="/"><h1>주소를 확인해주세요!</h1></Route>
                 </Switch>
