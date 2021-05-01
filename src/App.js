@@ -30,7 +30,7 @@ class App extends Component {
                 //     SubContents:"https://me2.do/xWNMi3gu"}
             ]
             ,tech_high_list:[
-                "html","css3","jquery","git","js","mysql","java"
+                "java","html","css3","jquery","git","js","mysql"
             ]
             ,tech_mid_list:[
                 "nodejs","react"
