@@ -1,10 +1,12 @@
 import {Component} from "react";
 import {Col, Row, Divider} from "antd";
+import {Link} from "react-router-dom";
 
-class MiniProject extends Component {
+class Project extends Component {
     render() {
         let lists = [];
-        let data = this.props.data;
+        let data = this.props.outer_link;
+        let inner_link = this.props.inner_link;
         let i = 0;
         while (i<data.length){
             lists.push(
@@ -29,7 +31,22 @@ class MiniProject extends Component {
                     <br/>
                 </div>
         )
-
+            i+=1;
+        }
+        i=0;
+        while (i<inner_link.length){
+            lists.push(
+                <div>
+                    <ul>
+                        <li key={inner_link[i].Title}><Link
+                            to={inner_link[i].Link}>
+                            {inner_link[i].Title}
+                        </Link>
+                        </li>
+                    </ul>
+                    <br/>
+                </div>
+            )
             i+=1;
         }
 
@@ -44,4 +61,4 @@ class MiniProject extends Component {
     }
 }
 
-export default MiniProject;
+export default Project;
