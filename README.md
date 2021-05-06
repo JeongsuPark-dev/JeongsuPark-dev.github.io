@@ -1,12 +1,7 @@
-# 포트폴리오 주소
+# 박정수의 포트폴리오 입니다.
 ---------
+구현된 페이지의 주소는 아래와 같습니다.<br/>
 [https://jeongsupark-dev.github.io/build/index.html](https://jeongsupark-dev.github.io/build/index.html)
-
-
-# build folder
----------
-실제 배포될 폴더<br/>
-실 배포 시 해당 파일만 배포
 
 # Project
 ---------
@@ -28,6 +23,7 @@ React 프로젝트
 components : 컴포넌트
 images : 이미지 파일
 pages : 메인을 비롯하여 전체적인 구성을 갖춘 페이지
+build folder : 실제 배포 시 반영할 컴파일된 파일들이 있는 폴더
 ```
 
 
