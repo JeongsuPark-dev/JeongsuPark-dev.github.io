@@ -36,8 +36,8 @@ export default class Main extends Component {
                 }
             ],
             inner_link: [
-                {Title : "안드로이드 앱 프로젝트", Link : "MiniProject001"},
-                {Title : "IOT 앱 프로젝트", Link : "MiniProject002"}
+                {Title : "안드로이드 앱 프로젝트", Link : "miniproject001"},
+                {Title : "IOT 앱 프로젝트", Link : "miniproject002"}
             ]
             , tech_high_list: [
                 "java", "git", "js", "mysql", "html", "css3", "jquery"
