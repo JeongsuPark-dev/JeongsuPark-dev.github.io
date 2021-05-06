@@ -2,6 +2,8 @@ import '../App.css';
 import Header from "../components/Header";
 import Body from "../components/Body";
 import {Component} from "react";
+import InnerHeader from "../components/InnerHeader";
+import {Button} from "antd";
 
 export default class MiniProject001 extends Component {
 
@@ -10,14 +12,26 @@ export default class MiniProject001 extends Component {
             <div className="App">
                 <Header />
                 <div className="App-mainbody">
-                    <div style={{paddingTop : "30px",backgroundColor: "rgb(2,29,46)"}}></div>
-                    <Body Title={"신규 작성중인 페이지로 실시간 업데이트 중입니다."} />
-                    <Body Title={"마지막 업데이트 일자 : 2021-04-29 18:00"} />
+                    <InnerHeader/>
 
-                    <a>TestTestTestTestTestTestTestTestTestTest</a>
+                    <div>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=socket.androidtown.org.learningassistance"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button type="primary"
+                                    style={{marginTop : '15px', marginBottom : '15px'}}
+                            >
+                                플레이스토어에서 확인하기
+                            </Button>
+                        </a>
+
+                    </div>
+
+                    <img style={{width : '60%'}} src={process.env.PUBLIC_URL + '/images/miniproject001_high.png'}></img>>
                 </div>
             </div>
         );
     }
-
 }

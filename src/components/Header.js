@@ -2,6 +2,7 @@ import {Component} from "react";
 import logo from "../logo.svg";
 import Moment from "react-moment";
 import { Button } from "antd";
+import Body from "./Body";
 
 class Header extends Component {
     render() {

@@ -9,6 +9,7 @@ import ForState from "../components/ForState";
 import Project from "../components/Project";
 import Technology from "../components/Technology";
 import {Link} from "react-router-dom";
+import InnerHeader from "../components/InnerHeader";
 
 
 let stack = 0;
@@ -28,23 +29,18 @@ export default class Main extends Component {
 
             outer_link: [
                 {
-                    Link: "https://me2.do/xWNMi3gu", Title: '네이버 클론코딩',
+                    Link: "https://me2.do/xWNMi3gu", Title: '네이버 클론코딩', Image : 'naver_clone',
                     SubTitle: "단축 URL : ",
                     SubLink: "https://me2.do/xWNMi3gu",
                     SubContents: "https://me2.do/xWNMi3gu"
                 }
-
-                ,{Link:"https://me2.do/xWNMi3gu", Title:'네이버 클론코딩22',
-                    SubTitle:"단축 URL : ",
-                    SubLink:"https://me2.do/xWNMi3gu",
-                    SubContents:"https://me2.do/xWNMi3gu"}
             ],
             inner_link: [
-                {Title : "미니프로젝트 001", Link : "MiniProject001"},
-                {Title : "미니프로젝트 002", Link : "MiniProject002"}
+                {Title : "안드로이드 앱 프로젝트", Link : "MiniProject001"},
+                {Title : "IOT 앱 프로젝트", Link : "MiniProject002"}
             ]
             , tech_high_list: [
-                "java", "html", "css3", "jquery", "git", "js", "mysql"
+                "java", "git", "js", "mysql", "html", "css3", "jquery"
             ]
             , tech_mid_list: [
                 "nodejs", "react"
@@ -61,9 +57,7 @@ export default class Main extends Component {
             <div className="App">
                 <Header />
                 <div className="App-mainbody">
-                    <div style={{paddingTop : "30px",backgroundColor: "rgb(2,29,46)"}}></div>
-                    <Body Title={"신규 작성중인 페이지로 실시간 업데이트 중입니다."} />
-                    <Body Title={"마지막 업데이트 일자 : 2021-04-29 18:00"} />
+                    <InnerHeader/>
 
                     <Home Title={"안녕하세요 박정수입니다."}/>
 
