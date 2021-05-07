@@ -38,7 +38,7 @@ class Project extends Component {
             lists.push(
                 <div>
                     <li key={inner_link[i].Title}><Link
-                        to={inner_link[i].Link}>
+                        to={process.env.PUBLIC_URL+'/'+inner_link[i].Link}>
                         {inner_link[i].Title}
                     </Link>
                     </li>
