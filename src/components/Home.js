@@ -11,13 +11,18 @@ export default class Home extends Component {
                     정보의 공유와 소통, 상호 존중을 중시하며,<br/>문서화와 기록에 노력하고 있습니다.
                     <Divider orientation="center" style={{fontSize : "26px"}}>이런 업무를 했습니다.</Divider>
                     <ul style={{textAlign : "left"}}>
+                        <li>JAVA, Spring Framework를 이용한 Web Application 개발</li>
+                        <li>MariaDB, MySQL 경험</li>
+                        <li>Linux 계열 OS 기반의 개발 경험(CentOS, Redhat)</li>
+                        <li>Ajax, jQuery, HTML, JavaScript, CSS 를 이용한 개발</li>
+                        <li>Jenkins를 통한 파이프라인으로 배포자동화(CI/CD)</li>
+                        <li>API 활용 (네아로,short url 등..)</li>
+                        <li>Cross browsing issue 처리(Safari, Chrome, Explorer 등)</li>
+                        <li>결제처리(결제 및 결제 전 후 로그&연산처리 등)</li>
+                        <li>RESTful API</li>
                         <li>SSL 인증서 관련 작업</li>
                         <li>IOT 연동(스캐너, 프린터, 전등, 콘센트, 에어컨 등)</li>
-                        <li>Cross browsing issue 처리(Safari, Chrome, Explorer 등)</li>
                         <li>다양한 Library 활용 (Calendar, Excel, 등)</li>
-                        <li>결제처리(결제 및 결제 전 후 로그&연산처리 등)</li>
-                        <li>short url 자동화 처리</li>
-                        <li>Jenkins를 통한 파이프라인으로 배포자동화(CI/CD)</li>
                         <li>웹앱개발(Android/IOS앱배포), 푸시알림, 버전 업데이트 관리 등..</li>
                     </ul>
 

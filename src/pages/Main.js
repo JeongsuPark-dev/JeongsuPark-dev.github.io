@@ -76,9 +76,9 @@ export default class Main extends Component {
                         outer_link = {this.state.outer_link}
                         inner_link = {this.state.inner_link}
                     />
-                    <li><Link to="/topics">TOPICS</Link></li>
-                    <h1>Footer(수정예정)</h1>
-                    <Footer />
+                    {/*<li><Link to="/topics">TOPICS</Link></li>*/}
+                    {/*<h1>Footer(수정예정)</h1>*/}
+                    {/*<Footer />*/}
                 </div>
             </div>
         );
