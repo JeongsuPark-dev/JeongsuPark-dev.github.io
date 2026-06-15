@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useReveal from "../hooks/useReveal";
 
-const EMAIL = "jeongsupark.dev@gmail.com";
+const EMAIL = "integer613@gmail.com";
 
 const CHANNELS = [
   {

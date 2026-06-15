@@ -1,7 +1,7 @@
 const LINKS = [
   { label: "GitHub", href: "https://github.com/JeongsuPark-dev" },
   { label: "Source", href: "https://github.com/JeongsuPark-dev/JeongsuPark-dev.github.io" },
-  { label: "Email", href: "mailto:jeongsupark.dev@gmail.com" },
+  { label: "Email", href: "mailto:integer613@gmail.com" },
 ];
 
 export default function Footer() {
