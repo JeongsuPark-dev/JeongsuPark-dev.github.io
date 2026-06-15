@@ -1,70 +1,94 @@
-import {Component} from "react";
-import {Col, Row, Divider} from "antd";
+import useReveal from "../hooks/useReveal";
 
+const LABELS = {
+  java: "Java",
+  git: "Git",
+  js: "JavaScript",
+  mysql: "MySQL",
+  html: "HTML5",
+  css3: "CSS3",
+  jquery: "jQuery",
+  nodejs: "Node.js",
+  react: "React",
+  redux: "Redux",
+  objective_c: "Objective-C",
+};
 
-class Technology extends Component {
-    render() {
-        // console.log("console test")
-        let tech_high_lists = [];
-        let tech_mid_lists = [];
-        let tech_low_lists = [];
-        let get_tech_high_list = this.props.tech_high_list;
-        let get_tech_mid_list = this.props.tech_mid_list;
-        let get_tech_low_list = this.props.tech_low_list;
-        let i = 0;
+const GROUPS = [
+  {
+    key: "expert",
+    title: "Expert",
+    badge: "주력",
+    modifier: "expert",
+    description: "실무에서 자주 활용하며 자신 있는 영역",
+  },
+  {
+    key: "proficient",
+    title: "Proficient",
+    badge: "활용",
+    modifier: "proficient",
+    description: "필요한 기능을 직접 구현할 수 있는 수준",
+  },
+  {
+    key: "familiar",
+    title: "Familiar",
+    badge: "학습",
+    modifier: "familiar",
+    description: "기본 개념을 익히고 점차 확장 중",
+  },
+];
 
-        while (i<get_tech_high_list.length){
-            tech_high_lists.push(
-                <Col span={6}>
-                    <img
-                        className="Tech_img"
-                        src={process.env.PUBLIC_URL + '/images/' + get_tech_high_list[i] +'.png'}></img>
-                </Col>
-            )
-            i+=1;
-        }
-        i = 0 ;
-        while (i<get_tech_mid_list.length){
-            tech_mid_lists.push(
-                <Col span={6}>
-                    <img
-                        className="Tech_img"
-                        src={process.env.PUBLIC_URL + '/images/' + get_tech_mid_list[i] +'.png'}></img>
-                </Col>
-            )
-            i+=1;
-        }
-        i = 0 ;
-        while (i<get_tech_low_list.length){
-            tech_low_lists.push(
-                <Col span={6}>
-                    <img
-                        className="Tech_img"
-                        src={process.env.PUBLIC_URL + '/images/' + get_tech_low_list[i] +'.png'}></img>
-                </Col>
-            )
-            i+=1;
-        }
-
-        return (
-            <div className="App-technology" style={{marginBottom:"10px", marginLeft : "14vw", marginRight:"14vw"}}>
-                <h1>기술 숙련도</h1>
-                <Divider orientation="center" style={{fontSize : "26px"}}>상</Divider>
-                <Row gutter={[8,16]} justify="space-around" align="middle">
-                    {tech_high_lists}
-                </Row>
-                <Divider orientation="center" style={{fontSize : "26px"}}>중</Divider>
-                <Row gutter={[8,16]} justify="space-around" align="middle">
-
-                    {tech_mid_lists}
-                </Row>
-                <Divider orientation="center" style={{fontSize : "26px"}}>하</Divider>
-                <Row gutter={[8,16]} justify="space-around" align="middle">
-                    {tech_low_lists}
-                </Row>
-            </div>
-        );
-    }
+function SkillIcon({ name }) {
+  return (
+    <div className="skill-item">
+      <img
+        className="skill-item__icon"
+        src={`${process.env.PUBLIC_URL}/images/${name}.png`}
+        alt={LABELS[name] || name}
+        loading="lazy"
+      />
+      <span className="skill-item__label">{LABELS[name] || name}</span>
+    </div>
+  );
 }
 
-export default Technology
+export default function Technology({ tech_high_list = [], tech_mid_list = [], tech_low_list = [] }) {
+  const ref = useReveal();
+  const lists = {
+    expert: tech_high_list,
+    proficient: tech_mid_list,
+    familiar: tech_low_list,
+  };
+
+  return (
+    <section id="skills" className="section">
+      <div className="container">
+        <div ref={ref} className="reveal">
+          <span className="section__eyebrow">Skills</span>
+          <h2 className="section__title">사용해 본 기술들</h2>
+          <p className="section__subtitle">
+            업무에서 실제로 다뤄본 기술을 숙련도에 따라 묶었습니다.
+            모든 항목은 직접 코드를 작성하거나 운영해 본 경험이 있습니다.
+          </p>
+
+          <div className="skills__groups">
+            {GROUPS.map((group) => (
+              <div key={group.key} className={`skill-group skill-group--${group.modifier}`}>
+                <div className="skill-group__header">
+                  <h3 className="skill-group__title">{group.title}</h3>
+                  <span className="skill-group__badge">{group.badge}</span>
+                </div>
+                <p className="skill-group__desc">{group.description}</p>
+                <div className="skill-grid">
+                  {lists[group.key].map((name) => (
+                    <SkillIcon key={name} name={name} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
