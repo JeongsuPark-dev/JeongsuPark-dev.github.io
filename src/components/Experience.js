@@ -2,44 +2,57 @@ import useReveal from "../hooks/useReveal";
 
 const EXPERIENCES = [
   {
-    period: "2020 — Present",
+    period: "2021 — Present",
+    role: "Backend / Full-stack Developer",
+    company: "라이브 스트리밍 서비스",
+    description:
+      "SNS 라이브 스트리밍과 라이브 챗 서비스의 백엔드를 개발·운영하고 있습니다. CI/CD와 테스트 자동화를 정착시키며 안정적인 배포 흐름을 만들었습니다.",
+    achievements: [
+      "Node.js·TypeScript·Express·tsoa 기반의 API 서버 설계 및 운영",
+      "메시지 큐 기반 비동기 처리로 실시간 트래픽 안정화",
+      "Docker·GCP·AWS 환경에서 CI/CD 파이프라인 구축",
+      "테스트 케이스 작성 문화 정착에 기여",
+    ],
+    tags: ["TypeScript", "Node.js", "Express", "Docker", "GCP", "AWS"],
+  },
+  {
+    period: "2021",
     role: "Full-stack Developer",
-    company: "Independent / Side Projects",
+    company: "핀테크 스타트업",
     description:
-      "React·Node.js 기반의 개인 프로젝트와 학습용 클론 코딩을 진행하며 프론트엔드와 백엔드 양쪽의 흐름을 익히고 있습니다.",
+      "Next.js 기반의 서비스를 개발하고 AWS 인프라 구성·부하 테스트까지 담당했습니다.",
     achievements: [
-      "React Router 기반 SPA 포트폴리오 사이트 직접 설계·배포",
-      "GitHub Pages를 활용한 정적 배포 자동화",
-      "Pretendard·CSS 토큰 시스템을 적용한 디자인 시스템 도입",
+      "Next.js·React·TypeScript로 사용자 화면과 서버 사이드 로직 구현",
+      "AWS(EC2·Route53·Elastic Beanstalk·Code Deploy·S3) 기반 배포 환경 구성",
+      "JMeter로 부하 테스트를 수행해 서비스 안정성 점검",
     ],
-    tags: ["React", "Node.js", "GitHub Pages"],
+    tags: ["Next.js", "React", "TypeScript", "AWS", "MySQL"],
   },
   {
-    period: "2018 — 2020",
+    period: "2019 — 2020",
     role: "Backend / Web Developer",
-    company: "SI / 자사 서비스",
+    company: "B2B 서비스 기업",
     description:
-      "Java·Spring 기반의 웹 애플리케이션을 개발하고 운영했습니다. Jenkins 파이프라인으로 배포를 자동화하고 결제·API 연동을 담당했습니다.",
+      "Spring 기반 백엔드와 JSP·React 프론트엔드를 함께 다루며 웹/웹앱 배포까지 풀스택으로 참여했습니다.",
     achievements: [
-      "Spring + MariaDB로 결제 전·후 로깅 및 정산 로직 구현",
-      "Jenkins CI/CD 파이프라인 구축으로 배포 시간 단축",
-      "네이버 로그인·단축 URL 등 외부 API 연동",
-      "Linux(CentOS) 환경 운영 및 SSL 인증서 발급·갱신",
+      "Java·Spring·MariaDB로 API 및 비즈니스 로직 구현",
+      "JSP 기반 레거시와 React로 작성된 신규 페이지를 함께 운영",
+      "웹앱 빌드·배포 프로세스 경험",
     ],
-    tags: ["Java", "Spring", "MariaDB", "Jenkins", "Linux"],
+    tags: ["Java", "Spring", "MariaDB", "React", "JSP"],
   },
   {
-    period: "2016 — 2018",
-    role: "App / IoT Developer",
-    company: "초기 커리어",
+    period: "2019",
+    role: "Web / Android Developer",
+    company: "초기 커리어 스타트업",
     description:
-      "Android 네이티브 앱과 IoT 연동 프로젝트를 통해 기기-서버 데이터 흐름을 학습했습니다. 첫 출시 앱을 직접 운영하며 사용자 피드백을 반영했습니다.",
+      "웹 백엔드·프론트엔드와 Android 네이티브 개발을 병행하며 풀스택의 기초를 다졌습니다.",
     achievements: [
-      "Android 학습 보조 앱 출시 및 운영",
-      "블루투스 센서·서버 DB 연동 IoT 프로토타입 개발",
-      "푸시 알림·버전 업데이트 등 앱 운영 전반 경험",
+      "Java·MariaDB 기반의 백엔드 API 개발",
+      "JSP·JavaScript·AJAX를 활용한 화면 구현",
+      "Android 네이티브 앱 개발 경험",
     ],
-    tags: ["Android", "Java", "IoT", "Bluetooth"],
+    tags: ["Java", "MariaDB", "Android", "JSP"],
   },
 ];
 
