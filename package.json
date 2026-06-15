@@ -74,10 +74,13 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
   },
+  "overrides": {
+    "postcss": "^8.4.31"
+  },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "start": "node --openssl-legacy-provider scripts/start.js",
+    "build": "node --openssl-legacy-provider scripts/build.js",
+    "test": "node --openssl-legacy-provider scripts/test.js"
   },
   "eslintConfig": {
     "extends": [
