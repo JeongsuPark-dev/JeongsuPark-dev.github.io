@@ -1,8 +1,10 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Experience from "../components/Experience";
 import Technology from "../components/Technology";
 import Project from "../components/Project";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 const PROJECTS = {
@@ -43,11 +45,13 @@ export default function Main() {
   return (
     <div className="app">
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <About />
+        <Experience />
         <Technology {...SKILLS} />
         <Project {...PROJECTS} />
+        <Contact />
       </main>
       <Footer />
     </div>

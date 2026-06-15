@@ -1,23 +1,63 @@
 import { useEffect, useState } from "react";
+import useTheme from "../hooks/useTheme";
+import useActiveSection from "../hooks/useActiveSection";
 
 const SECTIONS = [
   { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
 ];
+
+const SECTION_IDS = ["top", ...SECTIONS.map((s) => s.id)];
+
+function SunIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggle } = useTheme();
+  const active = useActiveSection(SECTION_IDS, 80);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const handleAnchor = (event, id) => {
     event.preventDefault();
+    setMenuOpen(false);
     const target = document.getElementById(id);
     if (!target) return;
     const top = target.getBoundingClientRect().top + window.scrollY - 56;
@@ -26,23 +66,42 @@ export default function Header() {
 
   return (
     <header className={`nav${scrolled ? " is-scrolled" : ""}`}>
+      <div
+        className="nav__progress"
+        style={{ transform: `scaleX(${progress})` }}
+        aria-hidden="true"
+      />
       <div className="nav__inner">
         <a href="#top" className="nav__brand" onClick={(e) => handleAnchor(e, "top")}>
           <span className="nav__brand-mark">JS</span>
           <span>Jeongsu Park</span>
         </a>
 
-        <nav className="nav__menu" aria-label="Primary">
+        <nav
+          id="primary-nav"
+          className={`nav__menu${menuOpen ? " is-open" : ""}`}
+          aria-label="Primary"
+        >
           {SECTIONS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="nav__link"
+              className={`nav__link${active === item.id ? " is-active" : ""}`}
               onClick={(e) => handleAnchor(e, item.id)}
             >
               {item.label}
             </a>
           ))}
+
+          <button
+            type="button"
+            className="nav__theme"
+            onClick={toggle}
+            aria-label={theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"}
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+
           <a
             className="nav__cta"
             href="https://github.com/JeongsuPark-dev/JeongsuPark-dev.github.io"
@@ -55,6 +114,19 @@ export default function Header() {
             Source
           </a>
         </nav>
+
+        <button
+          type="button"
+          className={`nav__burger${menuOpen ? " is-open" : ""}`}
+          aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </header>
   );
