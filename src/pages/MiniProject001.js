@@ -14,7 +14,7 @@ export default function MiniProject001() {
       <Header />
       <main className="detail">
         <div className="container">
-          <Link to={process.env.PUBLIC_URL + "/"} className="detail__back">
+          <Link to="/" className="detail__back">
             <BackIcon /> 메인으로 돌아가기
           </Link>
 
@@ -40,7 +40,7 @@ export default function MiniProject001() {
           <div className="detail__media">
             <img
               src={process.env.PUBLIC_URL + "/images/miniproject001_high.png"}
-              alt="학습 보조 앱 스크린샷"
+              alt="학습 보조 앱의 메인 화면 — 학습 항목 리스트와 진도 표시 UI"
             />
           </div>
         </div>

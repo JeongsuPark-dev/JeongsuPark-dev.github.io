@@ -10,10 +10,11 @@ export default function useActiveSection(ids, offset = 80) {
     if (elements.length === 0) return undefined;
 
     const onScroll = () => {
-      const scrollY = window.scrollY + offset + 1;
+      const threshold = window.scrollY + offset + 1;
       let current = ids[0];
       for (const el of elements) {
-        if (el.offsetTop <= scrollY) current = el.id;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (top <= threshold) current = el.id;
       }
       setActive(current);
     };

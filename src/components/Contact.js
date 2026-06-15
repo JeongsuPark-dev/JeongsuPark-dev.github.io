@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useReveal from "../hooks/useReveal";
 
 const EMAIL = "integer613@gmail.com";
@@ -45,13 +45,36 @@ function CheckIcon() {
 export default function Contact() {
   const ref = useReveal();
   const [copied, setCopied] = useState(false);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const onCopy = async () => {
     try {
       await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch (e) {}
+    } catch (e) {
+      // Clipboard API 미지원/권한 거부 환경(비-HTTPS 등) — execCommand 폴백
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = EMAIL;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "absolute";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      } catch (fallbackError) {
+        return;
+      }
+    }
+    setCopied(true);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setCopied(false), 1800);
   };
 
   return (

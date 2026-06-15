@@ -1,18 +1,12 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-//Link를 통한 페이지 변경 시 스크롤을 최상단으로 옮긴다.
+export default function ScrollToTop({ children }) {
+  const { pathname } = useLocation();
 
-class ScrollToTop extends Component {
-    componentDidUpdate(prevProps) {
-        if (this.props.location !== prevProps.location) {
-            window.scrollTo(0, 0)
-        }
-    }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-    render() {
-        return this.props.children
-    }
+  return children;
 }
-
-export default withRouter(ScrollToTop)

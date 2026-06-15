@@ -14,7 +14,7 @@ export default function MiniProject002() {
       <Header />
       <main className="detail">
         <div className="container">
-          <Link to={process.env.PUBLIC_URL + "/"} className="detail__back">
+          <Link to="/" className="detail__back">
             <BackIcon /> 메인으로 돌아가기
           </Link>
 
@@ -28,7 +28,7 @@ export default function MiniProject002() {
           <div className="detail__media">
             <img
               src={process.env.PUBLIC_URL + "/images/miniproject002_high.png"}
-              alt="IoT 앱 스크린샷"
+              alt="IoT 앱의 센서 데이터 대시보드 화면"
             />
           </div>
         </div>

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useTheme from "../hooks/useTheme";
 import useActiveSection from "../hooks/useActiveSection";
+
+const NAV_HEIGHT = 64;
 
 const SECTIONS = [
   { id: "about", label: "About" },
@@ -34,7 +36,9 @@ export default function Header() {
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggle } = useTheme();
-  const active = useActiveSection(SECTION_IDS, 80);
+  const active = useActiveSection(SECTION_IDS, NAV_HEIGHT);
+  const menuRef = useRef(null);
+  const burgerRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -55,12 +59,38 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    const onClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        burgerRef.current &&
+        !burgerRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onClickOutside);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onClickOutside);
+    };
+  }, [menuOpen]);
+
   const handleAnchor = (event, id) => {
     event.preventDefault();
     setMenuOpen(false);
     const target = document.getElementById(id);
     if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY - 56;
+    const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
     window.scrollTo({ top, behavior: "smooth" });
   };
 
@@ -79,6 +109,7 @@ export default function Header() {
 
         <nav
           id="primary-nav"
+          ref={menuRef}
           className={`nav__menu${menuOpen ? " is-open" : ""}`}
           aria-label="Primary"
         >
@@ -87,6 +118,7 @@ export default function Header() {
               key={item.id}
               href={`#${item.id}`}
               className={`nav__link${active === item.id ? " is-active" : ""}`}
+              aria-current={active === item.id ? "location" : undefined}
               onClick={(e) => handleAnchor(e, item.id)}
             >
               {item.label}
@@ -117,6 +149,7 @@ export default function Header() {
 
         <button
           type="button"
+          ref={burgerRef}
           className={`nav__burger${menuOpen ? " is-open" : ""}`}
           aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={menuOpen}

@@ -16,33 +16,32 @@ const ExternalIcon = () => (
 function ExternalCard({ project }) {
   return (
     <a
-      key={project.Title}
       className="project-card"
-      href={project.Link}
+      href={project.link}
       target="_blank"
       rel="noopener noreferrer"
     >
       <div className="project-card__media">
         <img
-          src={`${process.env.PUBLIC_URL}/images/${project.Image}.png`}
-          alt={project.Title}
+          src={`${process.env.PUBLIC_URL}/images/${project.image}.png`}
+          alt={`${project.title} 프로젝트 미리보기`}
           loading="lazy"
         />
       </div>
       <div className="project-card__body">
         <div className="project-card__tags">
-          {(project.Tags || ["External"]).map((tag) => (
+          {(project.tags || ["External"]).map((tag) => (
             <span key={tag} className="project-card__tag">{tag}</span>
           ))}
         </div>
         <div className="project-card__title">
-          {project.Title}
+          {project.title}
           <span className="project-card__arrow"><ArrowIcon /></span>
         </div>
-        {project.Description && <p className="project-card__desc">{project.Description}</p>}
-        {project.SubLink && (
+        {project.description && <p className="project-card__desc">{project.description}</p>}
+        {project.subLink && (
           <span className="project-card__link">
-            <ExternalIcon /> {project.SubContents || project.SubLink}
+            <ExternalIcon /> {project.subContents || project.subLink}
           </span>
         )}
       </div>
@@ -53,34 +52,33 @@ function ExternalCard({ project }) {
 function InternalCard({ project }) {
   return (
     <Link
-      key={project.Title}
-      to={`${process.env.PUBLIC_URL}/${project.Link}`}
+      to={`/${project.link}`}
       className="project-card"
     >
       <div className="project-card__media">
         <img
-          src={`${process.env.PUBLIC_URL}/images/${project.Link}.png`}
-          alt={project.Title}
+          src={`${process.env.PUBLIC_URL}/images/${project.link}.png`}
+          alt={`${project.title} 미리보기`}
           loading="lazy"
         />
       </div>
       <div className="project-card__body">
         <div className="project-card__tags">
-          {(project.Tags || ["Mini Project"]).map((tag) => (
+          {(project.tags || ["Mini Project"]).map((tag) => (
             <span key={tag} className="project-card__tag">{tag}</span>
           ))}
         </div>
         <div className="project-card__title">
-          {project.Title}
+          {project.title}
           <span className="project-card__arrow"><ArrowIcon /></span>
         </div>
-        {project.Description && <p className="project-card__desc">{project.Description}</p>}
+        {project.description && <p className="project-card__desc">{project.description}</p>}
       </div>
     </Link>
   );
 }
 
-export default function Project({ outer_link = [], inner_link = [] }) {
+export default function Project({ outerLinks = [], innerLinks = [] }) {
   const ref = useReveal();
 
   return (
@@ -95,11 +93,11 @@ export default function Project({ outer_link = [], inner_link = [] }) {
           </p>
 
           <div className="projects__grid">
-            {outer_link.map((project) => (
-              <ExternalCard key={project.Title} project={project} />
+            {outerLinks.map((project) => (
+              <ExternalCard key={project.title} project={project} />
             ))}
-            {inner_link.map((project) => (
-              <InternalCard key={project.Title} project={project} />
+            {innerLinks.map((project) => (
+              <InternalCard key={project.title} project={project} />
             ))}
           </div>
         </div>

@@ -44,7 +44,7 @@ function SkillIcon({ name }) {
       <img
         className="skill-item__icon"
         src={`${process.env.PUBLIC_URL}/images/${name}.png`}
-        alt={LABELS[name] || name}
+        alt=""
         loading="lazy"
       />
       <span className="skill-item__label">{LABELS[name] || name}</span>
@@ -52,12 +52,12 @@ function SkillIcon({ name }) {
   );
 }
 
-export default function Technology({ tech_high_list = [], tech_mid_list = [], tech_low_list = [] }) {
+export default function Technology({ techHighList = [], techMidList = [], techLowList = [] }) {
   const ref = useReveal();
   const lists = {
-    expert: tech_high_list,
-    proficient: tech_mid_list,
-    familiar: tech_low_list,
+    expert: techHighList,
+    proficient: techMidList,
+    familiar: techLowList,
   };
 
   return (
