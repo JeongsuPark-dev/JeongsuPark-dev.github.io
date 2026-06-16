@@ -44,6 +44,23 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
 
+    <!-- Root redirect: github.io 루트로 들어온 방문자를 /build/ 로 이동 -->
+    <!-- (master root의 Vite source HTML이 그대로 노출되지 않게 보호) -->
+    <!-- dev 서버(localhost)와 이미 /build/ 하위에서 서빙되는 빌드본에서는 동작 안 함 -->
+    <script>
+      (function () {
+        try {
+          var host = window.location.hostname;
+          var path = window.location.pathname;
+          var isProdHost = host.endsWith('github.io');
+          var isAtRoot = path === '/' || /^\/index\.html$/i.test(path);
+          if (isProdHost && isAtRoot) {
+            window.location.replace('/build/' + window.location.search + window.location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Strip trailing /index.html from URL -->
     <script>
       (function () {
