@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-# (build 폴더는 gh-pages 배포 산출물로 추적함. 정석은 별도 브랜치이나 현 구조 유지)
+# production — gh-pages 브랜치로 자동 배포되므로 master에서는 추적하지 않음
+/build
 
 # misc
 .DS_Store
