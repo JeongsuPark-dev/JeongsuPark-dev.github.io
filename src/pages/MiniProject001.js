@@ -8,6 +8,28 @@ const BackIcon = () => (
   </svg>
 );
 
+// 케이스 스터디 콘텐츠 — 본인의 실제 데이터로 교체 필요
+const CASE_STUDY = {
+  problem: [
+    "TODO: 이 프로젝트가 풀려고 했던 실제 문제를 한두 문장으로 기술 (예: \"학습 습관 추적이 종이 노트로 관리되어 누락·왜곡이 빈번\")",
+  ],
+  approach: [
+    "TODO: 어떤 접근으로 풀었는지 (예: \"로컬 SQLite + WorkManager 기반 백그라운드 동기화로 오프라인 우선 설계\")",
+  ],
+  stack: ["Android (Java)", "SQLite", "WorkManager", "Firebase Cloud Messaging"],
+  tradeoffs: [
+    "TODO: 의도적으로 포기한 것 / 선택한 것 (예: \"실시간 동기화 대신 5분 배치로 배터리 ↔ 신선도 트레이드오프\")",
+  ],
+  metrics: [
+    { label: "DAU", value: "TODO" },
+    { label: "Crash-free rate", value: "TODO" },
+    { label: "평균 학습 세션 길이", value: "TODO" },
+  ],
+  learned: [
+    "TODO: 가장 인상 깊었던 학습 1~2개 (실패 포함)",
+  ],
+};
+
 export default function MiniProject001() {
   return (
     <div className="app">
@@ -43,6 +65,59 @@ export default function MiniProject001() {
               alt="학습 보조 앱의 메인 화면 — 학습 항목 리스트와 진도 표시 UI"
             />
           </div>
+
+          <section className="case-study">
+            <div className="case-study__block">
+              <h2 className="case-study__heading">문제 정의</h2>
+              {CASE_STUDY.problem.map((line) => (
+                <p key={line} className="case-study__text">{line}</p>
+              ))}
+            </div>
+
+            <div className="case-study__block">
+              <h2 className="case-study__heading">접근 방식</h2>
+              {CASE_STUDY.approach.map((line) => (
+                <p key={line} className="case-study__text">{line}</p>
+              ))}
+            </div>
+
+            <div className="case-study__block">
+              <h2 className="case-study__heading">기술 스택</h2>
+              <div className="case-study__tags">
+                {CASE_STUDY.stack.map((tag) => (
+                  <span key={tag} className="case-study__tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="case-study__block">
+              <h2 className="case-study__heading">트레이드오프</h2>
+              {CASE_STUDY.tradeoffs.map((line) => (
+                <p key={line} className="case-study__text">{line}</p>
+              ))}
+            </div>
+
+            <div className="case-study__block">
+              <h2 className="case-study__heading">결과 / 수치</h2>
+              <dl className="case-study__metrics">
+                {CASE_STUDY.metrics.map((m) => (
+                  <div key={m.label} className="case-study__metric">
+                    <dt>{m.label}</dt>
+                    <dd>{m.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="case-study__block">
+              <h2 className="case-study__heading">배운 것</h2>
+              <ul className="case-study__list">
+                {CASE_STUDY.learned.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
         </div>
       </main>
       <Footer />

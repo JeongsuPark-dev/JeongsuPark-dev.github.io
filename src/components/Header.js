@@ -1,18 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import useTheme from "../hooks/useTheme";
 import useActiveSection from "../hooks/useActiveSection";
+import { useLang } from "../i18n/context";
 
 const NAV_HEIGHT = 64;
 
-const SECTIONS = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-];
-
-const SECTION_IDS = ["top", ...SECTIONS.map((s) => s.id)];
+const SECTION_KEYS = ["about", "experience", "skills", "projects", "contact"];
+const SECTION_IDS = ["top", ...SECTION_KEYS];
 
 function SunIcon() {
   return (
@@ -36,9 +30,15 @@ export default function Header() {
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggle } = useTheme();
+  const { lang, toggle: toggleLang, t } = useLang();
   const active = useActiveSection(SECTION_IDS, NAV_HEIGHT);
   const menuRef = useRef(null);
   const burgerRef = useRef(null);
+
+  const sections = useMemo(
+    () => SECTION_KEYS.map((id) => ({ id, label: t(`nav.${id}`) })),
+    [t]
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -113,7 +113,7 @@ export default function Header() {
           className={`nav__menu${menuOpen ? " is-open" : ""}`}
           aria-label="Primary"
         >
-          {SECTIONS.map((item) => (
+          {sections.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -127,9 +127,18 @@ export default function Header() {
 
           <button
             type="button"
+            className="nav__lang"
+            onClick={toggleLang}
+            aria-label={t("nav.langToggle")}
+          >
+            {lang === "ko" ? "EN" : "KO"}
+          </button>
+
+          <button
+            type="button"
             className="nav__theme"
             onClick={toggle}
-            aria-label={theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"}
+            aria-label={theme === "dark" ? t("nav.themeDark") : t("nav.themeLight")}
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
