@@ -4,7 +4,6 @@ import About from "../components/About";
 import Experience from "../components/Experience";
 import Technology from "../components/Technology";
 import Project from "../components/Project";
-import Writing from "../components/Writing";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -52,7 +51,6 @@ export default function Main() {
         <Experience />
         <Technology {...SKILLS} />
         <Project {...PROJECTS} />
-        <Writing />
         <Contact />
       </main>
       <Footer />
