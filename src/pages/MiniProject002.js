@@ -50,10 +50,14 @@ export default function MiniProject002() {
           </p>
 
           <div className="detail__media">
-            <img
-              src={process.env.PUBLIC_URL + "/images/miniproject002_high.png"}
-              alt="IoT 앱의 센서 데이터 대시보드 화면"
-            />
+            <picture>
+              <source srcSet={process.env.PUBLIC_URL + "/images/miniproject002_high.webp"} type="image/webp" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/miniproject002_high.png"}
+                alt="IoT 앱의 센서 데이터 대시보드 화면"
+                loading="lazy"
+              />
+            </picture>
           </div>
 
           <section className="case-study">

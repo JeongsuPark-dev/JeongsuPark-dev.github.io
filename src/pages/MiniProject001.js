@@ -62,10 +62,14 @@ export default function MiniProject001() {
           </a>
 
           <div className="detail__media">
-            <img
-              src={process.env.PUBLIC_URL + "/images/miniproject001_high.png"}
-              alt="학습 보조 앱의 메인 화면 — 학습 항목 리스트와 진도 표시 UI"
-            />
+            <picture>
+              <source srcSet={process.env.PUBLIC_URL + "/images/miniproject001_high.webp"} type="image/webp" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/miniproject001_high.png"}
+                alt="학습 보조 앱의 메인 화면 — 학습 항목 리스트와 진도 표시 UI"
+                loading="lazy"
+              />
+            </picture>
           </div>
 
           <section className="case-study">

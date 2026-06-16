@@ -26,11 +26,14 @@ function ExternalCard({ project }) {
       {...tilt}
     >
       <div className="project-card__media">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/${project.image}.png`}
-          alt={`${project.title} 프로젝트 미리보기`}
-          loading="lazy"
-        />
+        <picture>
+          <source srcSet={`${process.env.PUBLIC_URL}/images/${project.image}.webp`} type="image/webp" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/${project.image}.png`}
+            alt={`${project.title} 프로젝트 미리보기`}
+            loading="lazy"
+          />
+        </picture>
       </div>
       <div className="project-card__body">
         <div className="project-card__tags">
@@ -62,11 +65,14 @@ function InternalCard({ project }) {
       {...tilt}
     >
       <div className="project-card__media">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/${project.link}.png`}
-          alt={`${project.title} 미리보기`}
-          loading="lazy"
-        />
+        <picture>
+          <source srcSet={`${process.env.PUBLIC_URL}/images/${project.link}.webp`} type="image/webp" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/${project.link}.png`}
+            alt={`${project.title} 미리보기`}
+            loading="lazy"
+          />
+        </picture>
       </div>
       <div className="project-card__body">
         <div className="project-card__tags">
