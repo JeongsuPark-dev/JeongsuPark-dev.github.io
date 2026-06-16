@@ -1,20 +1,24 @@
 import { render, screen, act } from "@testing-library/react";
 import useActiveSection from "../useActiveSection";
 
-function mountSection(id, top) {
+function mountSection(id, absoluteTop) {
   const el = document.createElement("section");
   el.id = id;
-  el.getBoundingClientRect = () => ({
-    top,
-    bottom: top + 200,
-    left: 0,
-    right: 0,
-    width: 0,
-    height: 200,
-    x: 0,
-    y: top,
-    toJSON: () => ({}),
-  });
+  // getBoundingClientRect는 뷰포트 상대 좌표이므로 현재 scrollY를 빼서 시뮬레이션
+  el.getBoundingClientRect = () => {
+    const top = absoluteTop - window.scrollY;
+    return {
+      top,
+      bottom: top + 200,
+      left: 0,
+      right: 0,
+      width: 0,
+      height: 200,
+      x: 0,
+      y: top,
+      toJSON: () => ({}),
+    };
+  };
   document.body.appendChild(el);
   return el;
 }
