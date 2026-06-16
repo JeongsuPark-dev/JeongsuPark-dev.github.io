@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting…</title>
+
+    <!-- JS 비활성 환경용 fallback -->
+    <noscript><meta http-equiv="refresh" content="0; url=/build/" /></noscript>
+
+    <script>
+      (function () {
+        try {
+          var path = window.location.pathname || "/";
+          var search = window.location.search || "";
+          var hash = window.location.hash || "";
+
+          // 이미 /build/ 하위라면 보존, 아니라면 그대로 /build/ 로 매핑
+          var target;
+          if (path.indexOf("/build/") === 0) {
+            target = path + search + hash;
+          } else if (path === "/" || path === "") {
+            target = "/build/" + search + hash;
+          } else {
+            target = "/build" + path + search + hash;
+          }
+          window.location.replace(target);
+        } catch (e) {
+          window.location.replace("/build/");
+        }
+      })();
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        background: #0a0e1a;
+        color: #cbd5e1;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .msg { padding: 24px; }
+      .msg a { color: #38bdf8; }
+      .msg p { margin: 8px 0; line-height: 1.6; }
+    </style>
+  </head>
+  <body>
+    <div class="msg">
+      <p>이동 중입니다…</p>
+      <p>If you are not redirected, <a href="/build/">click here</a>.</p>
+    </div>
+  </body>
+</html>
