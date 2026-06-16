@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useReveal from "../hooks/useReveal";
+import useMouseTilt from "../hooks/useMouseTilt";
 
 const ArrowIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -14,12 +15,14 @@ const ExternalIcon = () => (
 );
 
 function ExternalCard({ project }) {
+  const tilt = useMouseTilt();
   return (
     <a
       className="project-card"
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
+      {...tilt}
     >
       <div className="project-card__media">
         <img
@@ -50,10 +53,12 @@ function ExternalCard({ project }) {
 }
 
 function InternalCard({ project }) {
+  const tilt = useMouseTilt();
   return (
     <Link
       to={`/${project.link}`}
       className="project-card"
+      {...tilt}
     >
       <div className="project-card__media">
         <img

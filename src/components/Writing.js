@@ -1,4 +1,30 @@
 import useReveal from "../hooks/useReveal";
+import useMouseTilt from "../hooks/useMouseTilt";
+
+function PostCard({ post }) {
+  const tilt = useMouseTilt();
+  return (
+    <a
+      href={post.href}
+      className="post-card"
+      {...tilt}
+      {...(post.href.startsWith("http")
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
+    >
+      <div className="post-card__meta">
+        <span className="post-card__date">{post.date}</span>
+        <div className="post-card__tags">
+          {post.tags.map((tag) => (
+            <span key={tag} className="post-card__tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+      <h3 className="post-card__title">{post.title}</h3>
+      <p className="post-card__excerpt">{post.excerpt}</p>
+    </a>
+  );
+}
 
 // 본인의 실제 글로 교체 (velog/티스토리/Medium URL 등)
 const POSTS = [
@@ -61,25 +87,7 @@ export default function Writing() {
 
           <div className="posts">
             {POSTS.map((post) => (
-              <a
-                key={post.title}
-                href={post.href}
-                className="post-card"
-                {...(post.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                <div className="post-card__meta">
-                  <span className="post-card__date">{post.date}</span>
-                  <div className="post-card__tags">
-                    {post.tags.map((tag) => (
-                      <span key={tag} className="post-card__tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                <h3 className="post-card__title">{post.title}</h3>
-                <p className="post-card__excerpt">{post.excerpt}</p>
-              </a>
+              <PostCard key={post.title} post={post} />
             ))}
           </div>
         </div>

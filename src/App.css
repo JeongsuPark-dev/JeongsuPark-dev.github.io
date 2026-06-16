@@ -1680,3 +1680,54 @@
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+/* ============================================================
+   Card hover interactions (project / post)
+   - 미세한 3D tilt + glow. prefers-reduced-motion 시 비활성
+============================================================ */
+.project-card,
+.post-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform var(--duration-base) var(--ease),
+              border-color var(--duration-base) var(--ease),
+              box-shadow var(--duration-base) var(--ease);
+}
+
+.project-card::after,
+.post-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),
+              var(--accent-glow), transparent 40%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+}
+
+.project-card:hover,
+.post-card:hover {
+  transform: translateY(-4px) perspective(800px)
+             rotateX(calc((50% - var(--my, 50%)) * 0.02))
+             rotateY(calc((var(--mx, 50%) - 50%) * 0.02));
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-glow);
+}
+
+.project-card:hover::after,
+.post-card:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .post-card {
+    transform: none !important;
+  }
+  .project-card::after,
+  .post-card::after {
+    display: none;
+  }
+}
