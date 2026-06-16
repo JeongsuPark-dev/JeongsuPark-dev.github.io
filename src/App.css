@@ -1731,3 +1731,136 @@
     display: none;
   }
 }
+
+/* ============================================================
+   Print stylesheet — Resume-style PDF export via window.print()
+============================================================ */
+@media print {
+  :root,
+  :root[data-theme="dark"],
+  :root[data-theme="light"] {
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-elevated: #ffffff;
+    --bg-overlay: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --text-muted: #333333;
+    --text-faint: #555555;
+    --border-subtle: #e0e0e0;
+    --border-default: #c0c0c0;
+    --border-strong: #888888;
+    --accent: #0050a0;
+    --accent-strong: #003070;
+    --accent-soft: transparent;
+    --accent-glow: transparent;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --bg-gradient-1: transparent;
+    --bg-gradient-2: transparent;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  body::before {
+    display: none !important;
+  }
+
+  .nav,
+  .footer,
+  .no-print,
+  .nav__progress,
+  .skip-link,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .section {
+    padding: 12pt 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .hero {
+    padding-top: 0 !important;
+  }
+
+  .hero__title,
+  .section__title {
+    color: #000000 !important;
+    font-size: 18pt !important;
+    page-break-after: avoid;
+  }
+
+  .hero__title-accent {
+    color: #000000 !important;
+  }
+
+  .hero__lead,
+  .section__subtitle {
+    color: #1a1a1a !important;
+    font-size: 11pt !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  a {
+    color: #0050a0 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555555;
+    word-break: break-all;
+  }
+
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after,
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  .project-card,
+  .post-card,
+  .case-study__block,
+  .colophon__section,
+  .ds-section,
+  .now-card {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid #d0d0d0 !important;
+    page-break-inside: avoid;
+  }
+
+  .project-card::after,
+  .post-card::after {
+    display: none !important;
+  }
+
+  .timeline__item,
+  .colophon__decision {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
