@@ -69,6 +69,11 @@ export const translations = {
       builtSuffix: "· Deployed on GitHub Pages",
       copy: "Crafted with care.",
     },
+    writing: {
+      eyebrow: "Writing",
+      title: "기록하고 공유하기",
+      subtitle: "배운 것을 글로 정리하면 더 오래 남고, 누군가에게는 시작점이 됩니다.",
+    },
     detail: {
       back: "메인으로 돌아가기",
     },
@@ -166,6 +171,11 @@ export const translations = {
       built: "Built with",
       builtSuffix: "· Deployed on GitHub Pages",
       copy: "Crafted with care.",
+    },
+    writing: {
+      eyebrow: "Writing",
+      title: "Record and share",
+      subtitle: "When learning is written down it lasts longer — and may be a starting point for someone else.",
     },
     detail: {
       back: "Back to main",

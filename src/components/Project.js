@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useReveal from "../hooks/useReveal";
 import useMouseTilt from "../hooks/useMouseTilt";
+import { useLang } from "../i18n/context";
 
 const ArrowIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -85,17 +86,15 @@ function InternalCard({ project }) {
 
 export default function Project({ outerLinks = [], innerLinks = [] }) {
   const ref = useReveal();
+  const { t } = useLang();
 
   return (
     <section id="projects" className="section">
       <div className="container">
         <div ref={ref} className="reveal">
-          <span className="section__eyebrow">Projects</span>
-          <h2 className="section__title">손으로 빚은 작은 프로젝트들</h2>
-          <p className="section__subtitle">
-            학습과 실험을 위해 직접 만들어 본 사이드 프로젝트입니다.
-            각 카드를 클릭하면 상세 정보 또는 외부 링크로 이동합니다.
-          </p>
+          <span className="section__eyebrow">{t("projects.eyebrow")}</span>
+          <h2 className="section__title">{t("projects.title")}</h2>
+          <p className="section__subtitle">{t("projects.subtitle")}</p>
 
           <div className="projects__grid">
             {outerLinks.map((project) => (

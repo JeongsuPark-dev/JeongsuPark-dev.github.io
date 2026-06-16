@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useLang } from "../i18n/context";
 
 const COLOR_TOKENS = [
   "bg-base", "bg-surface", "bg-elevated", "bg-overlay",
@@ -22,13 +23,14 @@ const TYPE_SCALE = [
 ];
 
 export default function DesignSystem() {
+  const { t } = useLang();
   return (
     <div className="app">
       <Header />
       <main className="detail design-system">
         <div className="container">
           <Link to="/" className="detail__back">
-            ← 메인으로 돌아가기
+            ← {t("detail.back")}
           </Link>
 
           <span className="section__eyebrow">Design System</span>

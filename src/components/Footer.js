@@ -1,3 +1,5 @@
+import { useLang } from "../i18n/context";
+
 const LINKS = [
   { label: "GitHub", href: "https://github.com/JeongsuPark-dev" },
   { label: "Source", href: "https://github.com/JeongsuPark-dev/JeongsuPark-dev.github.io" },
@@ -6,13 +8,14 @@ const LINKS = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { t } = useLang();
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__inner">
           <p className="footer__brand">
-            Built with <span className="footer__brand-accent">React</span> · Deployed on GitHub Pages
+            {t("footer.built")} <span className="footer__brand-accent">React</span> {t("footer.builtSuffix")}
           </p>
           <div className="footer__links">
             {LINKS.map((link) => (
@@ -27,7 +30,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p className="footer__copy">© {year} Jeongsu Park. Crafted with care.</p>
+          <p className="footer__copy">© {year} Jeongsu Park. {t("footer.copy")}</p>
         </div>
       </div>
     </footer>

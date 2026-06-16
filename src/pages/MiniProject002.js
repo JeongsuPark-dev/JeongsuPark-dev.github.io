@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useLang } from "../i18n/context";
 
 const BackIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -31,13 +32,14 @@ const CASE_STUDY = {
 };
 
 export default function MiniProject002() {
+  const { t } = useLang();
   return (
     <div className="app">
       <Header />
       <main className="detail">
         <div className="container">
           <Link to="/" className="detail__back">
-            <BackIcon /> 메인으로 돌아가기
+            <BackIcon /> {t("detail.back")}
           </Link>
 
           <span className="section__eyebrow">Mini Project · IoT</span>

@@ -1,5 +1,6 @@
 import useReveal from "../hooks/useReveal";
 import useMouseTilt from "../hooks/useMouseTilt";
+import { useLang } from "../i18n/context";
 
 function PostCard({ post }) {
   const tilt = useMouseTilt();
@@ -59,16 +60,15 @@ const NOW = {
 
 export default function Writing() {
   const ref = useReveal();
+  const { t } = useLang();
 
   return (
     <section id="writing" className="section">
       <div className="container">
         <div ref={ref} className="reveal">
-          <span className="section__eyebrow">Writing</span>
-          <h2 className="section__title">기록하고 공유하기</h2>
-          <p className="section__subtitle">
-            배운 것을 글로 정리하면 더 오래 남고, 누군가에게는 시작점이 됩니다.
-          </p>
+          <span className="section__eyebrow">{t("writing.eyebrow")}</span>
+          <h2 className="section__title">{t("writing.title")}</h2>
+          <p className="section__subtitle">{t("writing.subtitle")}</p>
 
           <div className="now-grid">
             <div className="now-card">

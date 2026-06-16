@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useReveal from "../hooks/useReveal";
+import { useLang } from "../i18n/context";
 
 const EMAIL = "integer613@gmail.com";
 
@@ -44,6 +45,7 @@ function CheckIcon() {
 
 export default function Contact() {
   const ref = useReveal();
+  const { t } = useLang();
   const [copied, setCopied] = useState(false);
   const timerRef = useRef(null);
 
@@ -81,17 +83,15 @@ export default function Contact() {
     <section id="contact" className="section">
       <div className="container">
         <div ref={ref} className="reveal">
-          <span className="section__eyebrow">Contact</span>
-          <h2 className="section__title">함께 이야기 나눠요</h2>
-          <p className="section__subtitle">
-            새로운 협업 기회, 채용 제안, 또는 가벼운 커피챗까지 — 편하게 연락 주세요.
-          </p>
+          <span className="section__eyebrow">{t("contact.eyebrow")}</span>
+          <h2 className="section__title">{t("contact.title")}</h2>
+          <p className="section__subtitle">{t("contact.subtitle")}</p>
 
           <div className="contact">
             <div className="contact__card contact__card--primary">
               <MailIcon />
               <div className="contact__main">
-                <p className="contact__label">Email</p>
+                <p className="contact__label">{t("contact.emailLabel")}</p>
                 <a className="contact__email" href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </div>
               <div className="contact__actions">
@@ -99,13 +99,13 @@ export default function Contact() {
                   type="button"
                   className="btn btn--ghost btn--sm"
                   onClick={onCopy}
-                  aria-label="이메일 복사"
+                  aria-label={t("contact.copyAria")}
                 >
                   {copied ? <CheckIcon /> : <CopyIcon />}
-                  {copied ? "복사됨" : "복사"}
+                  {copied ? t("contact.copied") : t("contact.copy")}
                 </button>
                 <a className="btn btn--primary btn--sm" href={`mailto:${EMAIL}`}>
-                  메일 보내기
+                  {t("contact.sendMail")}
                 </a>
               </div>
             </div>

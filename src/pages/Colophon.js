@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useReveal from "../hooks/useReveal";
+import { useLang } from "../i18n/context";
 
 const STACK = [
   { label: "Framework", value: "React 17 (CRA — Vite 마이그레이션 예정)" },
@@ -73,6 +74,7 @@ const TIMELINE = [
 
 export default function Colophon() {
   const ref = useReveal();
+  const { t } = useLang();
 
   return (
     <div className="app">
@@ -80,7 +82,7 @@ export default function Colophon() {
       <main className="detail colophon">
         <div className="container">
           <Link to="/" className="detail__back">
-            ← 메인으로 돌아가기
+            ← {t("detail.back")}
           </Link>
 
           <span className="section__eyebrow">Colophon</span>
