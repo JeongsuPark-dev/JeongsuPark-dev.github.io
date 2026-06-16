@@ -1497,95 +1497,6 @@
 }
 
 /* ============================================================
-   Case Study
-============================================================ */
-.case-study {
-  display: grid;
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-
-.case-study__block {
-  padding: var(--space-5);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-}
-
-.case-study__heading {
-  font-size: 18px;
-  margin-bottom: var(--space-3);
-  color: var(--accent);
-}
-
-.case-study__text {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-.case-study__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.case-study__tag {
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-radius: var(--radius-full);
-}
-
-.case-study__metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: var(--space-3);
-}
-
-.case-study__metric {
-  padding: var(--space-3);
-  background: var(--bg-base);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-}
-
-.case-study__metric dt {
-  font-size: 12px;
-  color: var(--text-faint);
-  margin-bottom: var(--space-1);
-}
-
-.case-study__metric dd {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.case-study__list {
-  display: grid;
-  gap: var(--space-2);
-  color: var(--text-muted);
-  font-size: 15px;
-}
-
-.case-study__list li {
-  padding-left: var(--space-4);
-  position: relative;
-}
-
-.case-study__list li::before {
-  content: '·';
-  position: absolute;
-  left: var(--space-2);
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* ============================================================
    Writing / Now / Posts
 ============================================================ */
 .now-grid {
@@ -1838,7 +1749,6 @@
 
   .project-card,
   .post-card,
-  .case-study__block,
   .colophon__section,
   .ds-section,
   .now-card {
