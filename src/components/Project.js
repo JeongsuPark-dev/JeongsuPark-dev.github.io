@@ -27,9 +27,9 @@ function ExternalCard({ project }) {
     >
       <div className="project-card__media">
         <picture>
-          <source srcSet={`${process.env.PUBLIC_URL}/images/${project.image}.webp`} type="image/webp" />
+          <source srcSet={`${import.meta.env.BASE_URL}images/${project.image}.webp`} type="image/webp" />
           <img
-            src={`${process.env.PUBLIC_URL}/images/${project.image}.png`}
+            src={`${import.meta.env.BASE_URL}images/${project.image}.png`}
             alt={`${project.title} 프로젝트 미리보기`}
             loading="lazy"
           />
@@ -66,9 +66,9 @@ function InternalCard({ project }) {
     >
       <div className="project-card__media">
         <picture>
-          <source srcSet={`${process.env.PUBLIC_URL}/images/${project.link}.webp`} type="image/webp" />
+          <source srcSet={`${import.meta.env.BASE_URL}images/${project.link}.webp`} type="image/webp" />
           <img
-            src={`${process.env.PUBLIC_URL}/images/${project.link}.png`}
+            src={`${import.meta.env.BASE_URL}images/${project.link}.png`}
             alt={`${project.title} 미리보기`}
             loading="lazy"
           />

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Switch, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { lazy, Suspense, useCallback, useState } from "react";
 import Main from "./pages/Main";
 import ShortcutsModal from "./components/ShortcutsModal";
@@ -44,14 +44,14 @@ export default function App() {
   return (
     <>
       <Suspense fallback={<div className="route-fallback" aria-hidden="true" />}>
-        <Switch>
-          <Route exact path="/miniproject001" component={MiniProject001} />
-          <Route exact path="/miniproject002" component={MiniProject002} />
-          <Route exact path="/colophon" component={Colophon} />
-          <Route exact path="/design" component={DesignSystem} />
-          <Route exact path="/" component={Main} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path="/miniproject001" element={<MiniProject001 />} />
+          <Route path="/miniproject002" element={<MiniProject002 />} />
+          <Route path="/colophon" element={<Colophon />} />
+          <Route path="/design" element={<DesignSystem />} />
+          <Route path="/" element={<Main />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Suspense>
       <ShortcutsModal open={helpOpen} onClose={closeHelp} />
     </>

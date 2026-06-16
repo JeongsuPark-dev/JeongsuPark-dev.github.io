@@ -26,7 +26,7 @@ function SkillIcon({ name }) {
     <div className="skill-item">
       <img
         className="skill-item__icon"
-        src={`${process.env.PUBLIC_URL}/images/${name}.png`}
+        src={`${import.meta.env.BASE_URL}images/${name}.png`}
         alt=""
         loading="lazy"
       />

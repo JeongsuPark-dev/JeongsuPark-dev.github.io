@@ -9,7 +9,7 @@
 /coverage
 
 # production
-#/build
+# (build 폴더는 gh-pages 배포 산출물로 추적함. 정석은 별도 브랜치이나 현 구조 유지)
 
 # misc
 .DS_Store
