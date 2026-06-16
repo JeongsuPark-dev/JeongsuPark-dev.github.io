@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://jeongsupark-dev.github.io/build",
+  "homepage": "https://jeongsupark-dev.github.io",
   "scripts": {
     "dev": "vite",
     "start": "vite",

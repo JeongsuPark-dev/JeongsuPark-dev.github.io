@@ -2,7 +2,7 @@
 
 > React 18 · Vite · React Router 6 기반의 개인 포트폴리오 사이트
 
-배포 URL: <https://jeongsupark-dev.github.io/build/>
+배포 URL: <https://jeongsupark-dev.github.io/>
 
 ---
 
@@ -34,7 +34,7 @@ npm test
 | **테스트** | Vitest + Testing Library |
 | **스타일** | Vanilla CSS + CSS Custom Properties |
 | **i18n** | 자체 Context (ko / en) |
-| **호스팅** | GitHub Pages (master `/build/`) |
+| **호스팅** | GitHub Pages (`gh-pages` 브랜치 자동 배포) |
 
 ## 🗺️ 주요 페이지
 
@@ -74,11 +74,13 @@ build/              빌드 산출물 (gh-pages 배포 경로)
 
 ## 🚢 배포
 
-현재는 master 브랜치의 `/build/` 폴더가 그대로 GitHub Pages user-site에서 서빙됩니다.
+master에 push되면 GitHub Actions가 자동으로 빌드해서 `gh-pages` 브랜치에 배포합니다.
+사이트는 루트(`https://jeongsupark-dev.github.io/`)에서 서빙됩니다.
 
-별도 `gh-pages` 브랜치로 전환하려면:
-1. GitHub Settings → Pages → Source를 `gh-pages` 브랜치로 변경
-2. Actions 탭에서 `Deploy to gh-pages` 워크플로우 수동 실행
+기존에 외부에 공유된 `/build/*` URL은 `public/404.html`의 fallback 스크립트가
+prefix를 자동 제거하여 새 경로로 리다이렉트합니다.
+
+수동 배포가 필요하면 Actions 탭에서 `Deploy to gh-pages` workflow_dispatch.
 
 ## 📝 라이센스 / 출처
 

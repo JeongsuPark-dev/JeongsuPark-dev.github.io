@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting…</title>
+
+    <!-- JS 비활성 환경용 fallback -->
+    <noscript><meta http-equiv="refresh" content="0; url=/" /></noscript>
+
+    <script>
+      // gh-pages SPA fallback:
+      //  1) 기존 /build/* URL → /* 로 매핑 (외부 공유 호환)
+      //  2) 그 외 매칭되지 않는 경로 → SPA 라우터가 처리하도록 / 로 보내며 path를 query에 저장
+      (function () {
+        try {
+          var path = window.location.pathname || "/";
+          var search = window.location.search || "";
+          var hash = window.location.hash || "";
+
+          // /build/ 또는 /build/anything 진입 시 prefix 제거
+          if (/^\/build(\/|$)/.test(path)) {
+            var stripped = path.replace(/^\/build/, "") || "/";
+            window.location.replace(stripped + search + hash);
+            return;
+          }
+
+          // 그 외 알 수 없는 경로: 루트로 보냄 (SPA NotFound 라우트가 처리)
+          window.location.replace("/" + search + hash);
+        } catch (e) {
+          window.location.replace("/");
+        }
+      })();
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        background: #0a0e1a;
+        color: #cbd5e1;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .msg { padding: 24px; }
+      .msg a { color: #38bdf8; }
+      .msg p { margin: 8px 0; line-height: 1.6; }
+    </style>
+  </head>
+  <body>
+    <div class="msg">
+      <p>이동 중입니다…</p>
+      <p>If you are not redirected, <a href="/">click here</a>.</p>
+    </div>
+  </body>
+</html>

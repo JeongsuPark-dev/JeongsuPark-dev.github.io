@@ -1,12 +1,25 @@
 name: Deploy to gh-pages
 
-# 수동 트리거만 사용 (배포 구조 전환 결정 후 활성화)
-# 사전 준비: GitHub Pages Settings → Source를 'gh-pages' 브랜치 / 루트로 변경
+# master의 소스 변경 시 자동 배포 + 수동 트리거 둘 다 허용
+# 사전 준비 (1회): GitHub Settings → Pages → Source를 'gh-pages' 브랜치로 변경
 on:
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "vite.config.js"
+      - "package.json"
+      - "package-lock.json"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:

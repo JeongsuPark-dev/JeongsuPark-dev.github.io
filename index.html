@@ -16,7 +16,7 @@
     <link rel="icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" href="./logo192.png" />
     <link rel="manifest" href="./manifest.json" />
-    <link rel="canonical" href="https://jeongsupark-dev.github.io/build/" />
+    <link rel="canonical" href="https://jeongsupark-dev.github.io/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -24,8 +24,8 @@
     <meta property="og:site_name" content="Jeongsu Park — Portfolio" />
     <meta property="og:title" content="박정수 (Jeongsu Park) — Full-stack Developer" />
     <meta property="og:description" content="Java · Spring · React · Node.js — 함께 일하고 싶은 개발자가 되겠습니다." />
-    <meta property="og:url" content="https://jeongsupark-dev.github.io/build/" />
-    <meta property="og:image" content="https://jeongsupark-dev.github.io/build/og-image.png" />
+    <meta property="og:url" content="https://jeongsupark-dev.github.io/" />
+    <meta property="og:image" content="https://jeongsupark-dev.github.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="박정수 (Jeongsu Park) — Full-stack Developer" />
     <meta name="twitter:description" content="Java · Spring · React · Node.js — 함께 일하고 싶은 개발자" />
-    <meta name="twitter:image" content="https://jeongsupark-dev.github.io/build/og-image.png" />
+    <meta name="twitter:image" content="https://jeongsupark-dev.github.io/og-image.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -43,23 +43,6 @@
       integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-
-    <!-- Root redirect: github.io 루트로 들어온 방문자를 /build/ 로 이동 -->
-    <!-- (master root의 Vite source HTML이 그대로 노출되지 않게 보호) -->
-    <!-- dev 서버(localhost)와 이미 /build/ 하위에서 서빙되는 빌드본에서는 동작 안 함 -->
-    <script>
-      (function () {
-        try {
-          var host = window.location.hostname;
-          var path = window.location.pathname;
-          var isProdHost = host.endsWith('github.io');
-          var isAtRoot = path === '/' || /^\/index\.html$/i.test(path);
-          if (isProdHost && isAtRoot) {
-            window.location.replace('/build/' + window.location.search + window.location.hash);
-          }
-        } catch (e) {}
-      })();
-    </script>
 
     <!-- Strip trailing /index.html from URL -->
     <script>
@@ -96,7 +79,7 @@
         "name": "Jeongsu Park",
         "alternateName": "박정수",
         "jobTitle": "Full-stack Developer",
-        "url": "https://jeongsupark-dev.github.io/build/",
+        "url": "https://jeongsupark-dev.github.io/",
         "sameAs": [
           "https://github.com/JeongsuPark-dev"
         ],
