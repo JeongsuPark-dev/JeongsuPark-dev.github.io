@@ -24,4 +24,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://jeongsupark-dev.github.io/design</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

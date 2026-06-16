@@ -6,6 +6,8 @@ import Technology from "../components/Technology";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import usePageMeta from "../hooks/usePageMeta";
+import { useLang } from "../i18n/context";
 
 const PROJECTS = {
   outerLinks: [
@@ -42,6 +44,12 @@ const SKILLS = {
 };
 
 export default function Main() {
+  const { t } = useLang();
+  usePageMeta({
+    title: t("meta.main.title"),
+    description: t("meta.main.description"),
+    path: "/",
+  });
   return (
     <div className="app">
       <Header />

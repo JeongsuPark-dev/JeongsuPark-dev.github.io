@@ -96,6 +96,32 @@ export const translations = {
         help: "단축키 안내",
       },
     },
+    meta: {
+      main: {
+        title: "박정수 (Jeongsu Park) — Full-stack Developer Portfolio",
+        description: "Java · Spring · React · Node.js 기반의 풀스택 개발자 박정수의 포트폴리오. 함께 일하고 싶은 개발자가 되기 위해 기록과 공유, 자동화를 실천합니다.",
+      },
+      miniproject001: {
+        title: "학습 보조 안드로이드 앱 — 박정수 포트폴리오",
+        description: "네이티브 안드로이드 환경에서 직접 만든 학습 도우미 앱. 로컬 DB · 푸시 알림 · 플레이스토어 배포까지의 경험.",
+      },
+      miniproject002: {
+        title: "IoT 센서 연동 앱 — 박정수 포트폴리오",
+        description: "블루투스로 외부 센서값을 수집하고 백엔드 DB에 적재해 모바일에서 시각화한 IoT 연동 실험.",
+      },
+      colophon: {
+        title: "Colophon — 이 사이트는 어떻게 만들어졌나",
+        description: "포트폴리오 사이트 자체의 기술 스택 · 설계 결정 · 성능 · 접근성 메모를 정리한 메타 페이지.",
+      },
+      design: {
+        title: "Design System — 디자인 토큰 카탈로그",
+        description: "포트폴리오 사이트의 컬러 · 간격 · 반경 · 타이포그래피 토큰 카탈로그.",
+      },
+      notFound: {
+        title: "페이지를 찾을 수 없습니다 — 박정수 포트폴리오",
+        description: "요청하신 페이지를 찾을 수 없습니다. 메인으로 돌아가 주세요.",
+      },
+    },
   },
   en: {
     nav: {
@@ -192,6 +218,32 @@ export const translations = {
         themeToggle: "Toggle theme",
         langToggle: "Toggle language",
         help: "Show shortcuts",
+      },
+    },
+    meta: {
+      main: {
+        title: "Jeongsu Park — Full-stack Developer Portfolio",
+        description: "Portfolio of Jeongsu Park, a full-stack developer working with Java · Spring · React · Node.js. Documenting, sharing, and automating to become a developer people want to work with.",
+      },
+      miniproject001: {
+        title: "Learning Assistant Android App — Jeongsu Park",
+        description: "A native Android learning helper app. Covers local DB, push notifications, and Play Store deployment.",
+      },
+      miniproject002: {
+        title: "IoT Sensor Integration App — Jeongsu Park",
+        description: "An IoT experiment that collects external sensor data via Bluetooth, ingests it into a backend DB, and visualizes it on mobile.",
+      },
+      colophon: {
+        title: "Colophon — How this site was built",
+        description: "A meta page documenting the stack, design decisions, performance, and accessibility notes behind this portfolio.",
+      },
+      design: {
+        title: "Design System — Token Catalog",
+        description: "Color, spacing, radius, and typography token catalog used across this portfolio.",
+      },
+      notFound: {
+        title: "Page not found — Jeongsu Park",
+        description: "The requested page could not be found. Please return to the main page.",
       },
     },
   },

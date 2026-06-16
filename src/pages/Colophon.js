@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useReveal from "../hooks/useReveal";
+import usePageMeta from "../hooks/usePageMeta";
 import { useLang } from "../i18n/context";
 
 const STACK = [
@@ -75,11 +76,16 @@ const TIMELINE = [
 export default function Colophon() {
   const ref = useReveal();
   const { t } = useLang();
+  usePageMeta({
+    title: t("meta.colophon.title"),
+    description: t("meta.colophon.description"),
+    path: "/colophon",
+  });
 
   return (
     <div className="app">
       <Header />
-      <main className="detail colophon">
+      <main id="main" className="detail colophon">
         <div className="container">
           <Link to="/" className="detail__back">
             ← {t("detail.back")}

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import useBodyScrollLock from "../hooks/useBodyScrollLock";
 import { useLang } from "../i18n/context";
 
 function Kbd({ children }) {
@@ -7,17 +8,51 @@ function Kbd({ children }) {
 
 export default function ShortcutsModal({ open, onClose }) {
   const { t } = useLang();
+  const dialogRef = useRef(null);
+  const closeRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
+  useBodyScrollLock(open);
 
   useEffect(() => {
     if (!open) return undefined;
+
+    // 열기 직전 포커스를 백업하고 모달 close 버튼으로 이동
+    previousFocusRef.current = document.activeElement;
+    closeRef.current?.focus();
+
     const onKey = (event) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const focusables = dialogRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      // 닫힐 때 이전 포커스 복원
+      const prev = previousFocusRef.current;
+      if (prev && typeof prev.focus === "function") {
+        prev.focus();
+      }
+      previousFocusRef.current = null;
     };
   }, [open, onClose]);
 
@@ -31,13 +66,14 @@ export default function ShortcutsModal({ open, onClose }) {
       aria-labelledby="shortcuts-title"
       onClick={onClose}
     >
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal" ref={dialogRef} onClick={(e) => e.stopPropagation()}>
         <div className="modal__header">
           <h2 id="shortcuts-title" className="modal__title">
             {t("shortcuts.title")}
           </h2>
           <button
             type="button"
+            ref={closeRef}
             className="modal__close"
             onClick={onClose}
             aria-label={t("shortcuts.close")}

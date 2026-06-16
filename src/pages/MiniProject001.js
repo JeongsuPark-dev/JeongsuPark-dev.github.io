@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import usePageMeta from "../hooks/usePageMeta";
 import { useLang } from "../i18n/context";
 
 const BackIcon = () => (
@@ -11,10 +12,15 @@ const BackIcon = () => (
 
 export default function MiniProject001() {
   const { t } = useLang();
+  usePageMeta({
+    title: t("meta.miniproject001.title"),
+    description: t("meta.miniproject001.description"),
+    path: "/miniproject001",
+  });
   return (
     <div className="app">
       <Header />
-      <main className="detail">
+      <main id="main" className="detail">
         <div className="container">
           <Link to="/" className="detail__back">
             <BackIcon /> {t("detail.back")}
@@ -46,6 +52,8 @@ export default function MiniProject001() {
                 src={import.meta.env.BASE_URL + "images/miniproject001_high.png"}
                 alt="학습 보조 앱의 메인 화면 — 학습 항목 리스트와 진도 표시 UI"
                 loading="lazy"
+                width="1069"
+                height="729"
               />
             </picture>
           </div>

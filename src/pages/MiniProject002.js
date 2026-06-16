@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import usePageMeta from "../hooks/usePageMeta";
 import { useLang } from "../i18n/context";
 
 const BackIcon = () => (
@@ -11,10 +12,15 @@ const BackIcon = () => (
 
 export default function MiniProject002() {
   const { t } = useLang();
+  usePageMeta({
+    title: t("meta.miniproject002.title"),
+    description: t("meta.miniproject002.description"),
+    path: "/miniproject002",
+  });
   return (
     <div className="app">
       <Header />
-      <main className="detail">
+      <main id="main" className="detail">
         <div className="container">
           <Link to="/" className="detail__back">
             <BackIcon /> {t("detail.back")}
@@ -34,6 +40,8 @@ export default function MiniProject002() {
                 src={import.meta.env.BASE_URL + "images/miniproject002_high.png"}
                 alt="IoT 앱의 센서 데이터 대시보드 화면"
                 loading="lazy"
+                width="1052"
+                height="777"
               />
             </picture>
           </div>

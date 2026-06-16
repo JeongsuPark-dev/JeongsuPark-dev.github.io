@@ -29,6 +29,8 @@ function SkillIcon({ name }) {
         src={`${import.meta.env.BASE_URL}images/${name}.png`}
         alt=""
         loading="lazy"
+        width="36"
+        height="36"
       />
       <span className="skill-item__label">{LABELS[name] || name}</span>
     </div>

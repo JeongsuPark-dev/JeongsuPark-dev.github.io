@@ -1,16 +1,17 @@
 import { useEffect, useRef } from "react";
+import { scrollBehavior } from "../lib/motion";
 
 const NAV_HEIGHT = 64;
 
 function scrollToId(id) {
   if (id === "top") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
     return;
   }
   const target = document.getElementById(id);
   if (!target) return;
   const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
-  window.scrollTo({ top, behavior: "smooth" });
+  window.scrollTo({ top, behavior: scrollBehavior() });
 }
 
 function isTypingTarget(event) {

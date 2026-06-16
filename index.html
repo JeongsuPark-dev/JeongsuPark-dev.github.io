@@ -71,6 +71,27 @@
       })();
     </script>
 
+    <!-- Lang bootstrap (스크린리더 초기 발음 정확도 / FOUC 방지) -->
+    <script>
+      (function () {
+        try {
+          var stored = null;
+          try { stored = localStorage.getItem('lang'); } catch (e) {}
+          var lang;
+          if (stored === 'ko' || stored === 'en') {
+            lang = stored;
+          } else if (typeof navigator !== 'undefined' && navigator.language) {
+            lang = navigator.language.toLowerCase().indexOf('en') === 0 ? 'en' : 'ko';
+          } else {
+            lang = 'ko';
+          }
+          document.documentElement.setAttribute('lang', lang);
+        } catch (e) {
+          document.documentElement.setAttribute('lang', 'ko');
+        }
+      })();
+    </script>
+
     <!-- Structured data -->
     <script type="application/ld+json">
       {

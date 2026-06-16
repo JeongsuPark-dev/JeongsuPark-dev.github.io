@@ -3,8 +3,10 @@ import { Routes, Route, Link } from "react-router-dom";
 import { lazy, Suspense, useCallback, useState } from "react";
 import Main from "./pages/Main";
 import ShortcutsModal from "./components/ShortcutsModal";
+import ErrorBoundary from "./components/ErrorBoundary";
 import useShortcuts from "./hooks/useShortcuts";
 import useTheme from "./hooks/useTheme";
+import usePageMeta from "./hooks/usePageMeta";
 import { useLang } from "./i18n/context";
 
 const MiniProject001 = lazy(() => import("./pages/MiniProject001"));
@@ -14,8 +16,12 @@ const DesignSystem = lazy(() => import("./pages/DesignSystem"));
 
 function NotFound() {
   const { t } = useLang();
+  usePageMeta({
+    title: t("meta.notFound.title"),
+    description: t("meta.notFound.description"),
+  });
   return (
-    <div className="notfound">
+    <main id="main" className="notfound">
       <div>
         <h1 className="notfound__title">{t("notFound.title")}</h1>
         <p className="notfound__desc">{t("notFound.desc")}</p>
@@ -23,7 +29,7 @@ function NotFound() {
           {t("notFound.cta")}
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -43,16 +49,18 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={<div className="route-fallback" aria-hidden="true" />}>
-        <Routes>
-          <Route path="/miniproject001" element={<MiniProject001 />} />
-          <Route path="/miniproject002" element={<MiniProject002 />} />
-          <Route path="/colophon" element={<Colophon />} />
-          <Route path="/design" element={<DesignSystem />} />
-          <Route path="/" element={<Main />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="route-fallback" aria-hidden="true" />}>
+          <Routes>
+            <Route path="/miniproject001" element={<MiniProject001 />} />
+            <Route path="/miniproject002" element={<MiniProject002 />} />
+            <Route path="/colophon" element={<Colophon />} />
+            <Route path="/design" element={<DesignSystem />} />
+            <Route path="/" element={<Main />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
       <ShortcutsModal open={helpOpen} onClose={closeHelp} />
     </>
   );

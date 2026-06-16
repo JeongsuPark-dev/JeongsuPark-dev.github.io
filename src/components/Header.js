@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import useTheme from "../hooks/useTheme";
 import useActiveSection from "../hooks/useActiveSection";
+import useBodyScrollLock from "../hooks/useBodyScrollLock";
+import { scrollBehavior } from "../lib/motion";
 import { useLang } from "../i18n/context";
 
 const NAV_HEIGHT = 64;
@@ -52,18 +54,46 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+  useBodyScrollLock(menuOpen);
 
   useEffect(() => {
-    if (!menuOpen) return undefined;
+    if (!menuOpen) {
+      // 닫힐 때 토글 버튼으로 포커스 복원(키보드 사용자 흐름 유지)
+      if (burgerRef.current && document.activeElement !== burgerRef.current) {
+        // open → close 전환일 때만 의미가 있지만, 이미 다른 곳으로 이동했다면 건너뜀
+        const inMenu = menuRef.current?.contains(document.activeElement);
+        if (inMenu) burgerRef.current.focus();
+      }
+      return undefined;
+    }
+
+    // 열릴 때: 첫 nav 링크로 포커스 이동
+    const firstFocusable = menuRef.current?.querySelector(
+      'a[href], button:not([disabled])'
+    );
+    firstFocusable?.focus();
 
     const onKeyDown = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const focusables = menuRef.current?.querySelectorAll(
+        'a[href], button:not([disabled])'
+      );
+      if (!focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     const onClickOutside = (event) => {
@@ -91,7 +121,7 @@ export default function Header() {
     const target = document.getElementById(id);
     if (!target) return;
     const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({ top, behavior: scrollBehavior() });
   };
 
   return (

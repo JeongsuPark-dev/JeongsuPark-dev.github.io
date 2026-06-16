@@ -32,6 +32,8 @@ function ExternalCard({ project }) {
             src={`${import.meta.env.BASE_URL}images/${project.image}.png`}
             alt={`${project.title} 프로젝트 미리보기`}
             loading="lazy"
+            width="320"
+            height="200"
           />
         </picture>
       </div>
@@ -71,6 +73,8 @@ function InternalCard({ project }) {
             src={`${import.meta.env.BASE_URL}images/${project.link}.png`}
             alt={`${project.title} 미리보기`}
             loading="lazy"
+            width="320"
+            height="200"
           />
         </picture>
       </div>
