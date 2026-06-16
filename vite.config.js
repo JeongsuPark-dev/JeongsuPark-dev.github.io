@@ -7,7 +7,20 @@ const base = process.env.VITE_BASE ?? "/build/";
 
 export default defineConfig(({ command }) => ({
   base: command === "build" ? base : "/",
-  plugins: [react()],
+  plugins: [
+    // .js 파일에 JSX가 섞여 있는 기존 코드 대응 (CRA 호환)
+    react({ include: /\.(js|jsx|ts|tsx)$/ }),
+  ],
+  esbuild: {
+    loader: "jsx",
+    include: /src\/.*\.(js|jsx)$/,
+    exclude: [],
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: { ".js": "jsx" },
+    },
+  },
   build: {
     outDir: "build",
     sourcemap: false,
