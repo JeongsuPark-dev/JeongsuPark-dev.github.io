@@ -1,7 +1,7 @@
 # 박정수의 포트폴리오 입니다.
 ---------
 구현된 페이지의 주소는 아래와 같습니다.<br/>
-[https://jeongsupark-dev.github.io/build/index.html](https://jeongsupark-dev.github.io/build/index.html)
+[https://jeongsupark-dev.github.io/build](https://jeongsupark-dev.github.io/build)
 
 # Project
 ---------
